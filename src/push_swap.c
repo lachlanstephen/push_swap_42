@@ -1,0 +1,107 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: darkwater <marvin@42.fr>                   +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/21 01:01:53 by darkwater         #+#    #+#             */
+/*   Updated: 2024/03/21 17:58:49 by darkwater        ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../includes/push_swap.h"
+
+void	ft_swap_elem(t_list **stk, int count)
+{
+	t_list	*temp;
+
+	if (count > 1)
+	{
+		temp = *stk;
+		*stk = (*stk)->next;
+		temp->next = (*stk)->next;
+		(*stk)->next = temp;
+	}
+	ft_printf("s\n");
+}
+
+void	ft_push_b(t_list **stk_a, t_list **stk_b, int *c_a, int *c_b)
+{
+	t_list	*temp;
+
+	temp = *stk_a;
+	if (*c_a > 0)
+	{
+		temp = (*stk_a)->next;
+		ft_lstadd_front(stk_b, (*stk_a));
+		(*c_a)--;
+		(*c_b)++;
+	}
+	(*stk_a) = temp;
+	ft_printf("pb\n");
+}
+
+void	ft_push_a(t_list **stk_b, t_list **stk_a, int *c_b, int *c_a)
+{
+	t_list	*temp;
+
+	temp = *stk_b;
+	if (*c_b > 0)
+	{
+		temp = (*stk_b)->next;
+		ft_lstadd_front(stk_a, (*stk_b));
+		(*c_b)--;
+		(*c_a)++;
+	}
+	(*stk_b) = temp;
+	ft_printf("pa\n");
+}
+
+t_list	*ft_rot_elem(t_list *stk)
+{
+	t_list	*head;
+	t_list	*top;
+
+	head = stk;
+	top = stk->next;
+	while (stk != NULL && stk->next != NULL)
+		stk = stk->next;
+	stk->next = head;
+	head->next = NULL;
+	ft_printf("r\n");
+	return (top);
+}
+
+t_list	*ft_rev_rot_elem(t_list *stk)
+{
+	t_list	*head;
+	t_list	*prev;
+
+	head = stk;
+	while (stk != NULL && stk->next != NULL)
+	{
+		prev = stk;
+		stk = stk->next;
+	}
+	stk->next = head;
+	prev->next = NULL;
+	ft_printf("rr\n");
+	return (stk);
+}
+
+t_list	*ft_push_swap(t_list *stack_a, int count_a)
+{
+	t_list	*stack_b;
+	int		count_b;
+
+	count_b = 0;
+	stack_b = NULL;
+	ft_swap_elem(&stack_a, count_a);
+	stack_a = ft_rot_elem(stack_a);
+	stack_a = ft_rev_rot_elem(stack_a);
+	ft_swap_elem(&stack_a, count_a);
+	ft_push_b(&stack_a, &stack_b, &count_a, &count_b);
+	ft_push_a(&stack_b, &stack_a, &count_b, &count_a);
+	return (stack_a);
+}
