@@ -6,7 +6,7 @@
 /*   By: darkwater <marvin@42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 01:01:53 by darkwater         #+#    #+#             */
-/*   Updated: 2024/03/25 01:37:28 by darkwater        ###   ########.fr       */
+/*   Updated: 2024/03/25 02:21:08 by darkwater        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ t_list	*ft_rot_elem_a(t_list *stk, int c_a)
 	t_list	*top;
 
 	head = stk;
-	if (c_a != 1)
+	if (c_a > 1)
 	{
 		top = stk->next;
 		while (stk != NULL && stk->next != NULL)
@@ -83,7 +83,7 @@ t_list	*ft_rot_elem_b(t_list *stk, int c_b)
 	t_list	*top;
 
 	head = stk;
-	if (c_b != 1)
+	if (c_b > 1)
 	{
 		top = stk->next;
 		while (stk != NULL && stk->next != NULL)
@@ -96,21 +96,46 @@ t_list	*ft_rot_elem_b(t_list *stk, int c_b)
 	return (head);
 }
 
-t_list	*ft_rev_rot_elem(t_list *stk)
+t_list	*ft_rev_rot_elem_a(t_list *stk, int c_a)
 {
 	t_list	*head;
 	t_list	*prev;
 
 	head = stk;
-	while (stk != NULL && stk->next != NULL)
+	if (c_a > 1)
 	{
-		prev = stk;
-		stk = stk->next;
+		while (stk != NULL && stk->next != NULL)
+		{
+			prev = stk;
+			stk = stk->next;
+		}
+		stk->next = head;
+		prev->next = NULL;
+		ft_printf("rra\n");
+		return (stk);
 	}
-	stk->next = head;
-	prev->next = NULL;
-	ft_printf("rr\n");
-	return (stk);
+	return (head);
+}
+
+t_list	*ft_rev_rot_elem_b(t_list *stk, int c_b)
+{
+	t_list	*head;
+	t_list	*prev;
+
+	head = stk;
+	if (c_b > 1)
+	{
+		while (stk != NULL && stk->next != NULL)
+		{
+			prev = stk;
+			stk = stk->next;
+		}
+		stk->next = head;
+		prev->next = NULL;
+		ft_printf("rrb\n");
+		return (stk);
+	}
+	return (head);
 }
 
 t_list	*ft_push_swap(t_list *stack_a, int count_a)
@@ -127,7 +152,7 @@ t_list	*ft_push_swap(t_list *stack_a, int count_a)
 	step = -1;
 	ft_remap_list(stack_a, count_a);
 	lim = ft_index_limit(count_a);
-	while (++idx <= lim)
+	while (++idx < lim)
 	{
 		step = -1;
 		while (stack_a != NULL && ++step < count_a)
@@ -141,7 +166,7 @@ t_list	*ft_push_swap(t_list *stack_a, int count_a)
 			}
 		}
 		step = -1;
-		while (idx + 1 <= lim && stack_b != NULL && ++step < count_b)
+		while (idx + 1 < lim && stack_b != NULL && ++step < count_b)
 		{
 			if ((stack_b->content >> (idx + 1)) & 1)
 			{
