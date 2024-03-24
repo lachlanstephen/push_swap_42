@@ -6,7 +6,7 @@
 /*   By: darkwater <marvin@42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 01:01:53 by darkwater         #+#    #+#             */
-/*   Updated: 2024/03/21 17:58:49 by darkwater        ###   ########.fr       */
+/*   Updated: 2024/03/25 01:37:28 by darkwater        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,19 +58,42 @@ void	ft_push_a(t_list **stk_b, t_list **stk_a, int *c_b, int *c_a)
 	ft_printf("pa\n");
 }
 
-t_list	*ft_rot_elem(t_list *stk)
+t_list	*ft_rot_elem_a(t_list *stk, int c_a)
 {
 	t_list	*head;
 	t_list	*top;
 
 	head = stk;
-	top = stk->next;
-	while (stk != NULL && stk->next != NULL)
-		stk = stk->next;
-	stk->next = head;
-	head->next = NULL;
-	ft_printf("r\n");
-	return (top);
+	if (c_a != 1)
+	{
+		top = stk->next;
+		while (stk != NULL && stk->next != NULL)
+			stk = stk->next;
+		stk->next = head;
+		head->next = NULL;
+		ft_printf("ra\n");
+		return (top);
+	}
+	return (head);
+}
+
+t_list	*ft_rot_elem_b(t_list *stk, int c_b)
+{
+	t_list	*head;
+	t_list	*top;
+
+	head = stk;
+	if (c_b != 1)
+	{
+		top = stk->next;
+		while (stk != NULL && stk->next != NULL)
+			stk = stk->next;
+		stk->next = head;
+		head->next = NULL;
+		ft_printf("rb\n");
+		return (top);
+	}
+	return (head);
 }
 
 t_list	*ft_rev_rot_elem(t_list *stk)
@@ -92,16 +115,44 @@ t_list	*ft_rev_rot_elem(t_list *stk)
 
 t_list	*ft_push_swap(t_list *stack_a, int count_a)
 {
+	int		lim;
+	int		idx;
+	int		step;
 	t_list	*stack_b;
 	int		count_b;
 
 	count_b = 0;
 	stack_b = NULL;
-	ft_swap_elem(&stack_a, count_a);
-	stack_a = ft_rot_elem(stack_a);
-	stack_a = ft_rev_rot_elem(stack_a);
-	ft_swap_elem(&stack_a, count_a);
-	ft_push_b(&stack_a, &stack_b, &count_a, &count_b);
-	ft_push_a(&stack_b, &stack_a, &count_b, &count_a);
+	idx = -1;
+	step = -1;
+	ft_remap_list(stack_a, count_a);
+	lim = ft_index_limit(count_a);
+	while (++idx <= lim)
+	{
+		step = -1;
+		while (stack_a != NULL && ++step < count_a)
+		{
+			if ((stack_a->content >> idx) & 1)
+				stack_a = ft_rot_elem_a(stack_a, count_a);
+			else 
+			{
+				ft_push_b(&stack_a, &stack_b, &count_a, &count_b);
+				step--;
+			}
+		}
+		step = -1;
+		while (idx + 1 <= lim && stack_b != NULL && ++step < count_b)
+		{
+			if ((stack_b->content >> (idx + 1)) & 1)
+			{
+				ft_push_a(&stack_b, &stack_a, &count_b, &count_a);
+				step--;
+			}
+			else
+				stack_b = ft_rot_elem_b(stack_b, count_b);
+		}
+	}
+	while (stack_b != NULL && count_b > 0)
+		ft_push_a(&stack_b, &stack_a, &count_b, &count_a);
 	return (stack_a);
 }

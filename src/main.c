@@ -6,7 +6,7 @@
 /*   By: darkwater <marvin@42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 00:17:27 by darkwater         #+#    #+#             */
-/*   Updated: 2024/03/21 16:37:03 by darkwater        ###   ########.fr       */
+/*   Updated: 2024/03/25 01:38:28 by darkwater        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,16 +56,26 @@ int	main(int argc, char *argv[])
 	{
 		temp = ft_lstnew(ft_atol_ps(argv[argc]));
 		if (ft_dupe(stack_a, temp->content))
+		{
+			ft_free_list(temp);
+			ft_free_list(stack_a);
 			ft_error();
+		}
 		ft_lstadd_front(&stack_a, temp);
 	}
 	if (check_unsorted(stack_a))
 		stack_a = ft_push_swap(stack_a, count);
+	//TO REMOVE AFTER TESTING!
+	/*
+	temp = stack_a;
 	while (stack_a != NULL)
 	{
 		ft_printf("%d ", stack_a->content);
 		stack_a = stack_a->next;
 	}
-//	ft_lstclear(&temp, ft_del_content(temp->content));	
+	ft_free_list(temp);
+	*/
+	//TO UNCOMMENT AFTER TESTING
+	ft_free_list(stack_a);
 	return (0);
 }
