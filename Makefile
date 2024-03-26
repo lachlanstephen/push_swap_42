@@ -6,16 +6,19 @@
 #    By: darkwater <marvin@42.fr>                   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/18 23:52:29 by darkwater         #+#    #+#              #
-#    Updated: 2024/03/24 17:26:53 by darkwater        ###   ########.fr        #
+#    Updated: 2024/03/25 02:53:12 by darkwater        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			= push_swap
 
 SRC				= main.c		\
-				utils.c			\
+				oper_push.c		\
+				oper_swap.c		\
+				oper_rotate.c	\
 				push_swap.c		\
-				remap_values.c
+				remap_values.c	\
+				utils.c			\
 
 SRCPRE			= $(addprefix $(SRCDIR), $(SRC))
 
