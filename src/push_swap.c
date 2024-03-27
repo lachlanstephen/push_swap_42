@@ -6,7 +6,7 @@
 /*   By: darkwater <marvin@42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 01:01:53 by darkwater         #+#    #+#             */
-/*   Updated: 2024/03/27 23:23:59 by darkwater        ###   ########.fr       */
+/*   Updated: 2024/03/27 23:48:18 by darkwater        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static t_list	*ft_small_sort(t_list *stack_a, int c_a)
 		if (stack_a->content > last->content)
 			stack_a = ft_rot_elem_a(stack_a, c_a);
 		else if (stack_a->content > stack_a->next->content)
-			ft_swap_elem(&stack_a, c_a);
+			ft_swap_elem_a(&stack_a, c_a);
 		else
 			stack_a = ft_rev_rot_elem_a(stack_a, c_a);
 	}
@@ -56,7 +56,7 @@ static t_list	*ft_medium_sort(t_list *stack_a, t_list *stack_b,
 		{
 			ft_push_b(&stack_a, &stack_b, &c_a, &c_b);
 			if (c_a == 3)
-				ft_swap_elem(&stack_b, c_b);
+				ft_swap_elem_b(&stack_b, c_b);
 		}
 		else if (stack_a->content == largest)
 			ft_push_b(&stack_a, &stack_b, &c_a, &c_b);

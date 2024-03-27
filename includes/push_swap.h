@@ -6,7 +6,7 @@
 /*   By: darkwater <marvin@42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 00:18:15 by darkwater         #+#    #+#             */
-/*   Updated: 2024/03/27 23:23:25 by darkwater        ###   ########.fr       */
+/*   Updated: 2024/03/27 23:47:28 by darkwater        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ void		ft_push_b(t_list **stk_a, t_list **stk_b, int *c_a, int *c_b);
 void		ft_push_a(t_list **stk_b, t_list **stk_a, int *c_b, int *c_a);
 void		ft_remap_list(t_list *lst, int count);
 void		ft_remap_values(t_list *lst, int *nums, int count);
-void		ft_swap_elem(t_list **stk, int count);
+void		ft_swap_elem_a(t_list **stk, int count);
+void		ft_swap_elem_b(t_list **stk, int count);
 
 #endif
