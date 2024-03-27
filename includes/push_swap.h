@@ -6,7 +6,7 @@
 /*   By: darkwater <marvin@42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 00:18:15 by darkwater         #+#    #+#             */
-/*   Updated: 2024/03/25 03:04:38 by darkwater        ###   ########.fr       */
+/*   Updated: 2024/03/27 23:23:25 by darkwater        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,22 @@
 
 # include "../libft/includes/libft.h"
 
+bool		check_unsorted(t_list *stk);
+
 int			ft_atol_ps(char *str);
 int			ft_index_limit(int num);
 
 t_list		*ft_push_swap(t_list *stack_a, int count_a, int count_b);
+t_list		*ft_med_fill_a(t_list *stack_a, t_list *stack_b, int c_a, int c_b);
+t_list		*ft_cmp_fill_a(t_list *stack_a, t_list *stack_b, int c_a, int c_b);
 t_list		*ft_rot_elem_a(t_list *stk, int c_a);
 t_list		*ft_rot_elem_b(t_list *stk, int c_b);
 t_list		*ft_rev_rot_elem_a(t_list *stk, int c_a);
 t_list		*ft_rev_rot_elem_b(t_list *stk, int c_b);
 
-//void		*ft_del_content(t_list *lst);
 void		ft_error(void);
 void		ft_free_list(t_list *lst);
+void		ft_initialise_vals(int (*iter)[3], int c_a);
 void		ft_push_b(t_list **stk_a, t_list **stk_b, int *c_a, int *c_b);
 void		ft_push_a(t_list **stk_b, t_list **stk_a, int *c_b, int *c_a);
 void		ft_remap_list(t_list *lst, int count);

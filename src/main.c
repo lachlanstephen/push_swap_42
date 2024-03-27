@@ -6,7 +6,7 @@
 /*   By: darkwater <marvin@42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 00:17:27 by darkwater         #+#    #+#             */
-/*   Updated: 2024/03/25 03:04:18 by darkwater        ###   ########.fr       */
+/*   Updated: 2024/03/27 23:24:39 by darkwater        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static bool	ft_dupe(t_list *stk, int val)
 	return (false);
 }
 
-static bool	check_unsorted(t_list *stk)
+bool	check_unsorted(t_list *stk)
 {
 	int	prev;
 

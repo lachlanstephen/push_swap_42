@@ -6,7 +6,7 @@
 #    By: darkwater <marvin@42.fr>                   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/18 23:52:29 by darkwater         #+#    #+#              #
-#    Updated: 2024/03/25 02:53:12 by darkwater        ###   ########.fr        #
+#    Updated: 2024/03/27 23:07:52 by darkwater        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ SRC				= main.c		\
 				oper_rotate.c	\
 				push_swap.c		\
 				remap_values.c	\
+				sort_utils.c	\
 				utils.c			\
 
 SRCPRE			= $(addprefix $(SRCDIR), $(SRC))

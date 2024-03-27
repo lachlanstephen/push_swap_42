@@ -6,7 +6,7 @@
 /*   By: darkwater <marvin@42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 00:05:43 by darkwater         #+#    #+#             */
-/*   Updated: 2024/03/25 02:03:03 by darkwater        ###   ########.fr       */
+/*   Updated: 2024/03/27 23:03:44 by darkwater        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,6 @@ void	ft_error(void)
 	write(2, "Error\n", 6);
 	exit(1);
 }
-
-/*
-void	*ft_del_content(t_list *lst)
-{
-	lst->content = 0;
-}
-*/
 
 int	ft_index_limit(int num)
 {
