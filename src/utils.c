@@ -6,7 +6,7 @@
 /*   By: darkwater <marvin@42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 00:05:43 by darkwater         #+#    #+#             */
-/*   Updated: 2024/03/28 17:52:47 by darkwater        ###   ########.fr       */
+/*   Updated: 2024/03/28 23:02:05 by darkwater        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	ft_atol_ps(char *str)
 	i = -1;
 	res = 0;
 	neg = false;
-	if (str[0] == '-' && i++ > -1)
+	if (str[0] == '-' && ++i > -1)
 		neg = true;
 	while (str[++i] != 0)
 	{

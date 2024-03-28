@@ -6,7 +6,7 @@
 /*   By: darkwater <marvin@42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 02:35:54 by darkwater         #+#    #+#             */
-/*   Updated: 2024/03/27 23:47:39 by darkwater        ###   ########.fr       */
+/*   Updated: 2024/03/28 22:59:16 by darkwater        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ void	ft_swap_elem_a(t_list **stk, int count)
 		*stk = (*stk)->next;
 		temp->next = (*stk)->next;
 		(*stk)->next = temp;
+		ft_printf("sa\n");
 	}
-	ft_printf("sa\n");
 }
 
 void	ft_swap_elem_b(t_list **stk, int count)
@@ -36,6 +36,6 @@ void	ft_swap_elem_b(t_list **stk, int count)
 		*stk = (*stk)->next;
 		temp->next = (*stk)->next;
 		(*stk)->next = temp;
+		ft_printf("sb\n");
 	}
-	ft_printf("sb\n");
 }

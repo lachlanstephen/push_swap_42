@@ -6,7 +6,7 @@
 /*   By: darkwater <marvin@42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 02:34:00 by darkwater         #+#    #+#             */
-/*   Updated: 2024/03/25 02:34:03 by darkwater        ###   ########.fr       */
+/*   Updated: 2024/03/28 23:00:24 by darkwater        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ void	ft_push_b(t_list **stk_a, t_list **stk_b, int *c_a, int *c_b)
 		ft_lstadd_front(stk_b, (*stk_a));
 		(*c_a)--;
 		(*c_b)++;
+		ft_printf("pb\n");
 	}
 	(*stk_a) = temp;
-	ft_printf("pb\n");
 }
 
 void	ft_push_a(t_list **stk_b, t_list **stk_a, int *c_b, int *c_a)
@@ -39,7 +39,7 @@ void	ft_push_a(t_list **stk_b, t_list **stk_a, int *c_b, int *c_a)
 		ft_lstadd_front(stk_a, (*stk_b));
 		(*c_b)--;
 		(*c_a)++;
+		ft_printf("pa\n");
 	}
 	(*stk_b) = temp;
-	ft_printf("pa\n");
 }

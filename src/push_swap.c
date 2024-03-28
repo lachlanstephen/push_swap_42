@@ -6,7 +6,7 @@
 /*   By: darkwater <marvin@42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 01:01:53 by darkwater         #+#    #+#             */
-/*   Updated: 2024/03/27 23:48:18 by darkwater        ###   ########.fr       */
+/*   Updated: 2024/03/28 23:11:56 by darkwater        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,10 @@ static t_list	*ft_medium_sort(t_list *stack_a, t_list *stack_b,
 {
 	int		smallest;
 	int		largest;
+	int		init_count;
 
 	ft_set_limit(stack_a, &smallest, &largest);
+	init_count = c_a;
 	while (stack_a != NULL && c_a > 3)
 	{
 		if (stack_a->content == smallest)
@@ -58,7 +60,7 @@ static t_list	*ft_medium_sort(t_list *stack_a, t_list *stack_b,
 			if (c_a == 3)
 				ft_swap_elem_b(&stack_b, c_b);
 		}
-		else if (stack_a->content == largest)
+		else if (stack_a->content == largest && init_count == 5)
 			ft_push_b(&stack_a, &stack_b, &c_a, &c_b);
 		else
 			stack_a = ft_rot_elem_a(stack_a, c_a);
