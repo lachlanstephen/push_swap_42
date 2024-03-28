@@ -6,7 +6,7 @@
 /*   By: darkwater <marvin@42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/24 17:21:02 by darkwater         #+#    #+#             */
-/*   Updated: 2024/03/25 01:37:59 by darkwater        ###   ########.fr       */
+/*   Updated: 2024/03/28 23:32:19 by darkwater        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,10 +76,7 @@ void	ft_remap_list(t_list *lst, int count)
 	head = lst;
 	nums = malloc(sizeof(int) * count);
 	if (nums == NULL)
-	{
-		ft_free_list(lst);
-		ft_error();
-	}
+		ft_free_list(lst, 1);
 	while (lst != NULL && ++i < count)
 	{
 		nums[i] = lst->content;
