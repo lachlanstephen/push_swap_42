@@ -6,7 +6,7 @@
 /*   By: darkwater <marvin@42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 00:05:43 by darkwater         #+#    #+#             */
-/*   Updated: 2024/03/28 23:35:58 by darkwater        ###   ########.fr       */
+/*   Updated: 2024/03/29 22:04:48 by lstephen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	ft_free_list(t_list *lst, int exit)
 {
 	t_list	*next;
 
-	while (lst->next != NULL)
+	while (lst != NULL && lst->next != NULL)
 	{
 		next = lst->next;
 		free(lst);
