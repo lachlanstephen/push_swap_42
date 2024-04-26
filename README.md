@@ -14,7 +14,7 @@ To compile and run the program, run the following commands:
 
 # Make using the Makefile
 
-make	# Creates the push-swap executable
+make	# Creates the push_swap executable
 
 # Run the executable, using the following arguments
 
@@ -26,6 +26,10 @@ make	# Creates the push-swap executable
 _Note_: The list of integers given must be an unsorted list of unique integers.
 
 > [!TIP]
+> To generate a random int list quickly, you can use the command:
+> ````shuf -i <low_limit>-<up_limit> -n <amount>````
+
+> [!IMPORTANT]
 > Use the included checker programs (provided by 42) to make sure the integers are correctly sorted.
 
 ### Checking results
