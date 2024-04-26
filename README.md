@@ -18,16 +18,30 @@ make	# Creates the push-swap executable
 
 # Run the executable, using the following arguments
 
-./push-swap <int_list>
+./push_swap <int_list>
 
-# e.g. ./push-swap 1 6 2 4 3
+# e.g. ./push_swap 1 6 2 4 3
 ```
+
+> [!WARNING]
+> The list of integers given must be an unsorted list of unique integers.
 
 ### Checking results
 
 > [!TIP]
-> Use the included checker programs (provided by 42) to make sure the intergers are correctly sorted
+> Use the included checker programs (provided by 42) to make sure the integers are correctly sorted.
 
 To check the output is valid:
 
-`./push_swap <int_list> | ./checker_programs/<checker_OS> <int_list>`{:.bash}
+```bash
+./push_swap <int_list> | ./checker_programs/<checker_OS> <int_list>
+```
+
+> [!IMPORTANT]
+> To check how many moves it takes to sort, pipe the command `wc -l`, as we print one line per instruction
+
+```bash
+./push_swap <int_list> | wc -l
+```
+
+
