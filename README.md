@@ -25,6 +25,9 @@ make	# Creates the push_swap executable
 
 _Note_: The list of integers given must be an unsorted list of unique integers.
 
+> [!IMPORTANT]
+> Use the included checker programs (provided by 42) to make sure the integers are correctly sorted.
+
 > [!TIP]
 > To generate a random int list, I used [calculator soup's number generator](https://www.calculatorsoup.com/calculators/statistics/random-number-generator.php) and set it to a variable for later use.
 
@@ -43,9 +46,6 @@ ARG="<copied_list_of_ints>"
 
 > [!CAUTION]
 > Setting a variable doesn't seem to work on ZSH, so must use bash.
-
-> [!IMPORTANT]
-> Use the included checker programs (provided by 42) to make sure the integers are correctly sorted.
 
 ### Checking results
 
