@@ -26,17 +26,15 @@ make	# Creates the push_swap executable
 _Note_: The list of integers given must be an unsorted list of unique integers.
 
 > [!TIP]
-> To generate a random int list quickly, you can use the command `shuf`, and set it to a variable for later use.
+> To generate a random int list, I used [calculator soup's number generator](https://www.calculatorsoup.com/calculators/statistics/random-number-generator.php) and set it to a variable for later use.
 
 ```bash
 
-# The command to generate random integer list
+# Set integer list to variable
 
-shuf -i <lower_limit>-<upper_limit> -n <amount>
+ARG="<copied_list_of_ints>"
 
-# e.g. $ARG="shuf -i 0-10000 -n 100"
-
-# This generates 100 random values between 0 and 10000, and saves it $ARG
+# e.g. ARG="1 5 2 ... 9 6 3"
 
 # Run program using variable
 
