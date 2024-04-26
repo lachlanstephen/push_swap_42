@@ -23,19 +23,20 @@ make	# Creates the push-swap executable
 # e.g. ./push_swap 1 6 2 4 3
 ```
 
-> [!WARNING]
-> The list of integers given must be an unsorted list of unique integers.
-
-### Checking results
+_Note_: The list of integers given must be an unsorted list of unique integers.
 
 > [!TIP]
 > Use the included checker programs (provided by 42) to make sure the integers are correctly sorted.
 
-To check the output is valid:
+### Checking results
+
+To check the integer list is successfully sorted:
 
 ```bash
 ./push_swap <int_list> | ./checker_programs/<checker_OS> <int_list>
 ```
+
+_Note_: &lt;checker_OS&gt; must be changed with the version that works for your OS
 
 > [!IMPORTANT]
 > To check how many moves it takes to sort, pipe the command `wc -l`, as we print one line per instruction
@@ -44,4 +45,8 @@ To check the output is valid:
 ./push_swap <int_list> | wc -l
 ```
 
+### Plans for repository
 
+- [ ] Implement optimisations for the sorting algorithm I currently use
+- [ ] Attempt to use different sorting algorithms to achieve greater optimisation
+- [ ] Distant Futute: Attempt bonus - build own checker/visualiser
