@@ -26,8 +26,25 @@ make	# Creates the push_swap executable
 _Note_: The list of integers given must be an unsorted list of unique integers.
 
 > [!TIP]
-> To generate a random int list quickly, you can use the command:
-> ````shuf -i <low_limit>-<up_limit> -n <amount>````
+> To generate a random int list quickly, you can use the command `shuf`, and set it to a variable for later use.
+
+```bash
+
+# The command to generate random integer list
+
+shuf -i <lower_limit>-<upper_limit> -n <amount>
+
+# e.g. $ARG="shuf -i 0-10000 -n 100"
+
+# This generates 100 random values between 0 and 10000, and saves it $ARG
+
+# Run program using variable
+
+./push_swap $ARG
+```
+
+> [!CAUTION]
+> Setting a variable doesn't seem to work on ZSH, so must use bash.
 
 > [!IMPORTANT]
 > Use the included checker programs (provided by 42) to make sure the integers are correctly sorted.
@@ -37,7 +54,7 @@ _Note_: The list of integers given must be an unsorted list of unique integers.
 To check the integer list is successfully sorted:
 
 ```bash
-./push_swap <int_list> | ./checker_programs/<checker_OS> <int_list>
+./push_swap $ARG | ./checker_programs/<checker_OS> $ARG
 ```
 
 _Note_: &lt;checker_OS&gt; must be changed with the version that works for your OS
@@ -46,7 +63,7 @@ _Note_: &lt;checker_OS&gt; must be changed with the version that works for your 
 > To check how many moves it takes to sort, pipe the command `wc -l`, as we print one line per instruction
 
 ```bash
-./push_swap <int_list> | wc -l
+./push_swap $ARG | wc -l
 ```
 
 ### Plans for repository
